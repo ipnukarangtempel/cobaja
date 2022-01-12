@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:judul;datatype:blob,name:isi;datatype:blob" />
+	<infoitem key="UD_Qdetail" value="name:tanggal;datatype:datetime,name:judul;datatype:blob,name:isi;datatype:blob" />
+</info>

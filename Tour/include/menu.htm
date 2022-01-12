@@ -1,0 +1,149 @@
+<script type="text/javascript">
+<!--
+/***********************************************
+* Switch Menu script- by Martial B of http://getElementById.com/
+* Modified by Dynamic Drive for format & NS4/IE4 compatibility
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var persistmenu="yes" //"yes" or "no". Make sure each SPAN content contains an incrementing ID starting at 1 (id="sub1", id="sub2", etc)
+var persisttype="sitewide" //enter "sitewide" for menu to persist across site, "local" for this page only
+
+if (document.getElementById){ //DynamicDrive.com change
+document.write('<style type="text/css">\n')
+document.write('.submenu{display: none;}\n')
+document.write('</style>\n')
+}
+
+function SwitchMenu(obj){
+	if(document.getElementById){
+	var el = document.getElementById(obj);
+	var ar = document.getElementById("masterdiv").getElementsByTagName("span"); //DynamicDrive.com change
+		if(el.style.display != "block"){ //DynamicDrive.com change
+			for (var i=0; i<ar.length; i++){
+				if (ar[i].className=="submenu") //DynamicDrive.com change
+				ar[i].style.display = "none";
+			}
+			el.style.display = "block";
+		}else{
+			el.style.display = "none";
+		}
+	}
+}
+
+function get_cookie(Name) { 
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) { 
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function onloadfunction(){
+if (persistmenu=="yes"){
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=get_cookie(cookiename)
+if (cookievalue!="")
+document.getElementById(cookievalue).style.display="block"
+}
+}
+
+function savemenustate(){
+var inc=1, blockid=""
+while (document.getElementById("sub"+inc)){
+if (document.getElementById("sub"+inc).style.display=="block"){
+blockid="sub"+inc
+break
+}
+inc++
+}
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=(persisttype=="sitewide")? blockid+";path=/" : blockid
+document.cookie=cookiename+"="+cookievalue
+}
+
+if (window.addEventListener)
+window.addEventListener("load", onloadfunction, false)
+else if (window.attachEvent)
+window.attachEvent("onload", onloadfunction)
+else if (document.getElementById)
+window.onload=onloadfunction
+
+if (persistmenu=="yes" && document.getElementById)
+window.onunload=savemenustate
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="../CSS/contoh.css" rel="stylesheet" type="text/css">
+
+ <div id="masterdiv"> 
+                    
+    <div class="menutitle" onclick="SwitchMenu('sub1')"><img src="images/bullet_1.gif" width="16" height="16"> 
+      Profile</div>
+                    
+    
+  <span class="submenu" id="sub1">- <a href="index.php" class="normalTxt4">Profile 
+  Perusahaan</a><br>
+                    </span> 
+                    
+    <div class="menutitle" onclick="SwitchMenu('sub2')"> <img src="images/bullet_1.gif" width="16" height="16"> 
+      Tour Packages</div>
+                    
+    
+  <span class="submenu" id="sub2"> - <a href="paket%20tur.php">Daftar Paket Tur</a><br>
+    </span> 
+    <div class="menutitle" onclick="SwitchMenu('sub3')"> <img src="images/bullet_1.gif" width="16" height="16"> 
+      Booking</div>
+                    
+    
+  <span class="submenu" id="sub3">- <a href="booking.php" class="normalTxt4">Reservasi 
+  Paket Online</a></span><span class="submenu"><br>
+                    </span> 
+                    
+    <div class="menutitle" onclick="SwitchMenu('sub4')"><img src="images/bullet_1.gif" width="16" height="16"> 
+      Contact Us</div>
+    
+  <span class="submenu" id="sub4">-<a href="contact.php"> Hubungi Kami </a></span><a href="../contact.php"></a><span class="submenu"><br>
+    </span> 
+    <div class="menutitle" onclick="SwitchMenu('sub5')"><img src="images/bullet_1.gif" width="16" height="16"> 
+      Hot Info </div>
+                    
+    
+  <span class="submenu" id="sub5">- <a href="news.php" class="normalTxt4">Berita 
+  dan Info Baru</a><br>
+  <br>
+  <br>
+  <br>
+  </span></div>
+                 
+             
+

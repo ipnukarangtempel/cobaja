@@ -1,0 +1,54 @@
+.paragraf {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	text-align: justify;
+	letter-spacing: normal;
+	word-spacing: normal;
+	font-style: normal;
+
+
+
+}
+.judul {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+	font-weight: bold;
+
+}
+.menu {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.menutitle{
+cursor:pointer;
+margin-bottom: 5px;
+background-color:#EAF3FA;
+color:#000000;
+width:150px;
+padding:5px;
+text-align:left;
+font-weight:bold;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+text-decoration: none;
+}
+
+.submenu{
+margin-bottom: 1em;
+margin-left: 8px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 10px;
+text-decoration: none;
+color: #000000;
+}
+.blok {
+	background-color: #EAF3FA;
+}
+.isi {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
